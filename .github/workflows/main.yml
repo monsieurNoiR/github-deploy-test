@@ -11,12 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Get latest code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     
-    - name: Sync files
-      uses: SamKirkland/FTP-Deploy-Action@v3.1.1
+    - name: FTP Deploy
+      uses: sebastianpopp/ftp-action@releases/v2
       with:
-        ftp-server: ftp://monsieur-noir.sakura.ne.jp/www/studioNoiR/github-test/
-        ftp-username: monsieur-noir
-        ftp-password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./
+        host: monsieur-noir.sakura.ne.jp
+        user: monsieur-noir
+        password: ${{ secrets.FTP_PASSWORD }}
+        remoteDir: /www/studioNoiR/github-test/
