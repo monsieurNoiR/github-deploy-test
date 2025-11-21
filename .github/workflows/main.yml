@@ -16,8 +16,7 @@ jobs:
     - name: Sync files
       uses: SamKirkland/FTP-Deploy-Action@v3.1.1
       with:
-        ftp-server: monsieur-noir.sakura.ne.jp
+        ftp-server: ftp://monsieur-noir.sakura.ne.jp/www/studioNoiR/github-test/
         ftp-username: monsieur-noir
         ftp-password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./
-        server-dir: /www/studioNoiR/github-test/
