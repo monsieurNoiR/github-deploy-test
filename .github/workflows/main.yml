@@ -1,22 +1,23 @@
-name: 🚀 さくらサーバーへ自動デプロイ
+name: FTP Deploy
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
-  deploy:
-    name: 🎉 FTPデプロイ実行
+  web-deploy:
+    name: Deploy
     runs-on: ubuntu-latest
-    
     steps:
-      - name: 🚚 最新コードを取得
-        uses: actions/checkout@v4
-        
-      - name: 📂 さくらサーバーに同期
-        uses: SamKirkland/FTP-Deploy-Action@v3.1.1
-        with:
-          server: ${{ vars.FTP_SERVER }}
-          username: ${{ vars.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ${{ vars.FTP_SERVER_DIR }}
+    - name: Get latest code
+      uses: actions/checkout@v3
+    
+    - name: Sync files
+      uses: SamKirkland/FTP-Deploy-Action@v3.1.1
+      with:
+        ftp-server: monsieur-noir.sakura.ne.jp
+        ftp-username: monsieur-noir
+        ftp-password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: ./
+        server-dir: /www/studioNoiR/github-test/
