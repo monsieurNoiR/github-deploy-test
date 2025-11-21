@@ -19,4 +19,4 @@ jobs:
         host: monsieur-noir.sakura.ne.jp
         user: monsieur-noir
         password: ${{ secrets.FTP_PASSWORD }}
-        remoteDir: /www/studioNoiR/github-test/
+        remoteDir: www/studioNoiR/github-test/
